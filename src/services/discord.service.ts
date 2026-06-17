@@ -35,18 +35,24 @@ export async function syncUserDiscordWidget(
 		`[INFO] [${new Date().toISOString()}] Updating Discord widget for ${discordId}`,
 	);
 
-	console.table({
-		username: stats.username,
-		display_name: stats.displayName,
-		avatar: stats.avatarUrl,
-		bio: stats.user_bio,
-		friends: stats.user_friends,
-		followers: stats.user_followers,
-		following: stats.user_following,
-		status: stats.user_status,
-		join_date: stats.user_join_date,
-		presence: stats.user_presence,
-	});
+	console.log(
+		`[DATA] Profile Stats: ${JSON.stringify(
+			{
+				username: stats.username,
+				display_name: stats.displayName,
+				avatar: stats.avatarUrl,
+				bio: stats.user_bio,
+				friends: stats.user_friends,
+				followers: stats.user_followers,
+				following: stats.user_following,
+				status: stats.user_status,
+				join_date: stats.user_join_date,
+				presence: stats.user_presence,
+			},
+			null,
+			2,
+		)}`,
+	);
 
 	const url = `https://discord.com/api/v9/applications/${config.discordAppId}/users/${discordId}/identities/0/profile`;
 
