@@ -6,6 +6,8 @@ const USERS_BASE_URL = "https://users.roblox.com/v1";
 const THUMB_BASE_URL = "https://thumbnails.roblox.com/v1";
 const PRESENCE_BASE_URL = "https://presence.roblox.com/v1";
 const FRIENDS_BASE_URL = "https://friends.roblox.com/v1";
+const BADGE_BASE_URL =
+	"https://raw.githubusercontent.com/xwalfiee/robloxstats/main/assets/badges";
 
 /**
  * Fetches Roblox profile + presence + social stats.
@@ -93,6 +95,11 @@ export async function fetchProfileStatistics(
 			}),
 
 			user_presence: presence?.lastLocation ?? "Unknown",
+
+			hasVerifiedBadge: user.hasVerifiedBadge ?? false,
+			badgeIconUrl: user.hasVerifiedBadge
+				? `${BADGE_BASE_URL}/verified_badge.png`
+				: `${BADGE_BASE_URL}/roblox_icon.png`,
 		};
 	} catch (error) {
 		const details =

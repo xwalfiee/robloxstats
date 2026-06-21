@@ -2,6 +2,7 @@ export interface RobloxUserResponse {
 	readonly id: number;
 	readonly name: string;
 	readonly displayName: string;
+	readonly hasVerifiedBadge: boolean;
 }
 
 export interface RobloxPresenceResponse {
@@ -24,4 +25,7 @@ export interface NormalizedRobloxStats {
 	readonly user_status: "In Game" | "Online" | "Offline";
 	readonly user_join_date: string;
 	readonly user_presence: string;
+
+	readonly hasVerifiedBadge: boolean;
+	readonly badgeIconUrl: string;
 }

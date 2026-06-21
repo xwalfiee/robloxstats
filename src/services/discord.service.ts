@@ -12,6 +12,7 @@ export async function syncUserDiscordWidget(
 		{ type: 1, name: "username", value: `@${stats.username}` },
 		{ type: 1, name: "display_name", value: stats.displayName },
 		{ type: 3, name: "user_avatar", value: { url: stats.avatarUrl } },
+		{ type: 3, name: "user_badge", value: { url: stats.badgeIconUrl } },
 
 		{ type: 1, name: "user_bio", value: stats.user_bio },
 
@@ -40,6 +41,8 @@ export async function syncUserDiscordWidget(
 			{
 				username: stats.username,
 				display_name: stats.displayName,
+				verified: stats.hasVerifiedBadge,
+				badge_icon: stats.badgeIconUrl,
 				avatar: stats.avatarUrl,
 				bio: stats.user_bio,
 				friends: stats.user_friends,
